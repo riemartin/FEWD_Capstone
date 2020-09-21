@@ -1,5 +1,7 @@
 // Personal API Key for OpenWeatherMap API
 
+const { response } = require ("express");
+
 var baseURL ='api.openweathermap.org/data/2.5/weather?zip='; 
 var country =',us';
 var apiKey ='&appid=67163477520e2727320fca73b260e7fd&units=imperial';
@@ -28,11 +30,11 @@ button.addEventListener('click', () => {
 
 /* Function to GET Web API Data*/
 
-function createRequest(event){
+async function createRequest(event){
     const getWeather = async (baseURL, country, zip, apiKey) =>{
-        const res = await fetch(baseURL+zip+country+apiKey);
+       const apiresponse =  await fetch(baseURL+zip+country+apiKey);
     }
-    const res = await response.json();
+    const res = apiresponse.json();
     const temp = res.main.temp.toString();
     const city = res.name.toString();
     const list = { name: city, temperature: temp, date: newDate, feelings: feelings };
@@ -77,5 +79,5 @@ function updateUI (data) {
     date.innerHTML = data.date;
     city.innerHTML = data.city;
     temp.innerHTML = data.temperature;
-    content.innerHTML = data.feelings;
+    content.innerHTML = data.feelings; 
 }

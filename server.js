@@ -35,8 +35,8 @@ function listening(){
 
 // Initialize all route with a callback function
 
-app.get('/all', functions(req, res){
-    res.send(JSON.stringify(projectData));
+app.get('/all', function (req, res) {
+    res.send(JSON.stringify(projectData))
 }); 
 
 // Post Route
