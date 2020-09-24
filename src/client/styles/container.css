@@ -1,0 +1,62 @@
+.container {
+    background-color: whitesmoke;
+    display:grid;
+    grid-template-columns: 600px 400px;
+    grid-template-rows: 200px 200px 100px 200px 100px 150px 600px; 
+    grid-row-gap: 50px;
+    grid-column-gap: 50px;
+    margin: auto;
+    grid-template-areas: 
+    "header"
+    "destination"
+    "field_dest"
+    "date" 
+    "field_date"
+    "button" 
+    "result";
+}
+
+@media(min-width: 900px) {
+    .container {
+        display:grid;
+        grid-template-columns: 600px 400px;
+        grid-template-rows: 200px 150px 150px 100px 600px; 
+        grid-row-gap: 50px;
+        grid-column-gap: 50px;
+        margin: auto;
+        grid-template-areas: 
+        "header header"
+        "destination field_dest"
+        "date field_date"
+        "button button" 
+        "result result";
+    }
+}
+
+.header {  
+    grid-area: header;
+}
+    
+.destination {
+    grid-area: destination;        
+}
+
+.field_dest {
+    grid-area: field_dest;
+}
+
+.date{
+    grid-area: date;
+}
+    
+.field_date {
+    grid-area: field_date;    
+}
+
+.button {
+    grid-area: button;
+} 
+    
+.result {
+    grid-area: result;
+}

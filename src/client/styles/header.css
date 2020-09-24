@@ -1,0 +1,9 @@
+.header {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    font-size: 120px;
+    font-family: 'sans serif'; 
+    background-color: whitesmoke;
+    border: black 30px double;
+}

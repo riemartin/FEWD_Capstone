@@ -1,0 +1,20 @@
+button{
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    margin: auto; 
+    width: 400px;
+    height: 100px;
+    background: #3b4a6b;
+    color: white;
+    font-size: 26px;
+    font-family: 'sans-serif';
+    border: none;
+    box-shadow: 2px 4px 5px #444;
+}
+
+#generate:hover {
+    background-color:grey;
+    color:black;
+    font-size: 40px;
+}
