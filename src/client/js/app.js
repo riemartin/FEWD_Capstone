@@ -1,7 +1,4 @@
 // Personal API Key for OpenWeatherMap API
-
-const { response } = require ("express");
-
 var baseURL ='api.openweathermap.org/data/2.5/weather?zip='; 
 var country =',us';
 var apiKey ='&appid=67163477520e2727320fca73b260e7fd&units=imperial';
