@@ -9,6 +9,7 @@ var app = express();
 
 // Dependencies
 var bodyParser = require('body-parser'); 
+const fetch = require(node-fetch); 
 
 /* Middleware*/
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -25,7 +26,7 @@ app.use(cors());
 app.use(express.static(path.resolve('../../dist')));
 
 // Spin up the server
-const port = 3000;
+const port = 8080;
 const server = app.listen(port, listening)
 
 // Callback to debug
@@ -33,20 +34,10 @@ function listening(){
     console.log("server running"); 
 }
 
-// Initialize all route with a callback function
+// Initialize all route 
 
 app.get('/all', function (req, res) {
-    res.send(JSON.stringify(TravelData))
+    res.send('./dist/index.html'))
 }); 
 
-// Get Route fpr 
-
-// Post Route
-
-app.post('/newData', function (req, res) {
-    let data = request.body;
-    projectData["city"]= data.name; 
-    projectData["temperature"]= data.temp;
-    projectData["date"]= data.date;
-    projectData["feelings"]= data.feelings;
-})
+// Post Routes?

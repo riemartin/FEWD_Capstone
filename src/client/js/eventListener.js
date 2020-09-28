@@ -1,9 +1,4 @@
-// Get input from the form field and save into variables
-
-const destination = document.getElementById('destination').value;    
-const traveldate = document.getElementById('traveldate').value; 
-
-export async function geoApi (event) {
+export async function geoApi (destination) {
 
     // Build url for Geonames API request
     const geonames_url ='api.geonames.org/search?name='{destination}'&username=&'${process.env.USERNAME}; 
@@ -16,21 +11,24 @@ export async function geoApi (event) {
     const lat = res.main.lat[0].toString(); 
     const long = res.main.lng[0].toString();
     const ctry = res.main.countryName[0].toString();
-    const list = {latitude: lat, longitude: long, country: ctry };
 
-    // Create Countdown
-
-    var oneDay = 24*60*60*1000;
-    const d = new Date();
-    const today = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
-    const countdown = Math.round(Math.abs((today.getTime() - traveldate.getTime())/(oneDay))); 
-
-    // Test
-    console.log(destination + traveldate + countdown + list); 
+    // Return required values
+    return {lat, long, ctry};   
 
 };   
 
-export async function weatherbitApi (event) {
+export async function pixabayApi (destination) {
+    const pixabay_url = 'https://pixabay.com/api/?key='${process.env.API_KEY}'&q='{destination}'&category=places&image_type=photo'; 
+ 
+    // Call API
+    const pixabayApiRes =  await fetch (pixabay_url); 
+    const pixabayres = pixabayApiRes.json();
+    const img = pixabayres.hits[0,1]; 
+     
+    return img;
+ }; 
+
+export async function weatherbitApi (lat, long) {
 
     const weatherNW_url ='https://api.weatherbit.io/v2.0/current?lat='{lat}'lon='{long}'&key='${process.env.API_KEY}; 
     const weatherFC_url = 'https://api.weatherbit.io/v2.0/forecast/daily?='{lat}'lon='{long}'&key='${process.env.API_KEY}; 
@@ -55,7 +53,8 @@ export async function weatherbitApi (event) {
         const description = res.main.weather.description.toString();
         const temp = res.main.temp.toString();
     }
-    
-    // Test
-    console.log(destination + traveldate + countdown + list); 
-}
+    return {weatherIcon, description, temp}; 
+ };     
+
+// Test
+console.log(destination + traveldate + countdown + list); 
