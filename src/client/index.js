@@ -1,7 +1,7 @@
-import './styles/button.css'; 
-import './styles/container.css';
-import './styles/form.css';
-import './css/header.css'; 
+import './styles/button.scss'; 
+import './styles/container.scss';
+import './styles/form.scss';
+import './styles/header.scss'; 
 
 import {geoApi, weatherbitApi, pixabayApi} from './js/eventListener'; 
 import {counter} from './js/counterCountdown';
@@ -16,15 +16,10 @@ export {uiUpdater};
 const travelData = {}; 
 
 //EventListener
-document.querySelector('button').addEventListener ('click', () => {
-    weatherbitApi();
-    pixabayApi(); 
-    dataAggregator
-}); 
+document.querySelector('button').addEventListener ('click', dataAggregator());
 
 // Aggregate Data from API requests
-
-const dataAggregator = async (event) => {
+async function dataAggregator (event) {
     
     // Get input from the form field and save into variables
     const destination = document.getElementById('destination').value;    

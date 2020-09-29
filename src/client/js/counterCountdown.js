@@ -6,5 +6,5 @@
         const d = new Date();
         const today = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
         const countdown = Math.round(Math.abs((today.getTime() - traveldate.getTime())/(oneDay))); 
-        return countdown
+        return countdown;
     }

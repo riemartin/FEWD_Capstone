@@ -37,7 +37,7 @@ function listening(){
 // Initialize all route 
 
 app.get('/all', function (req, res) {
-    res.send('./dist/index.html'))
+    res.send('./dist/index.html'); 
 }); 
 
 // Post Routes?

@@ -5,7 +5,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     mode: 'development',
-    entry: './src/client/js/app.js',
+    entry: './src/client/index.js',
     target: 'node',
     output: {
         libraryTarget: 'var',
@@ -29,6 +29,6 @@ module.exports = {
         new HtmlWebPackPlugin({
             template: "./src/client/views/index.html",
             filename: "./index.html",
-        })
+        }),
     ]
 }
