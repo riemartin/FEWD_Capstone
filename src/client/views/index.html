@@ -18,21 +18,29 @@
     <label for="destination">Where do you want to travel?</label>
   </div>
   <div class="field_dest">
-    <input type="text" id="destination" placeholder="Enter travel destination here">
+    <input type="text" id="destination" placeholder="Enter travel destination">
   </div>
   <div class ="date" id="questions">
     <label for="date">When would you like to travel?</label>
   </div>
   <div class = "field_date">
-    <input type="text" id="traveldate" placeholder="Enter travel date here">
+    <input type="text" id="traveldate" placeholder="Enter travel date: DD/MM/YYYY">
   </div>
-  <button class ="button" id="generate" type = "submit"> GO! </button>
+  <button class ="button" id="generate" type ="submit"> GO! </button>
   <div class ="result">
     <div id = "geo"></div>
     <div id = "Weather"></div>
 </div>
 </div>
-  
-<script src="index.html" type="text/javascript"></script>
+<script src="/src/client/index.js" type="text/javascript">
+
+if ('serviceWorker' in navigator) {
+     // Use the window load event to keep the page load performant
+     window.addEventListener('load', () => {
+         navigator.serviceWorker.register('/service-worker.js');
+     });
+ }
+ 
+</script>
 </body>
 </html>

@@ -1,6 +1,6 @@
-GET http://localhost:8080/all
+GET https://localhost:8080/all
 
 ###
 
-POST http://localhost:8000/
+POST https://localhost:8000/all
 
