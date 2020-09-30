@@ -9,7 +9,7 @@ var app = express();
 
 // Dependencies
 var bodyParser = require('body-parser'); 
-const fetch = require(node-fetch); 
+const fetch = require('node-fetch'); 
 
 /* Middleware*/
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -23,7 +23,7 @@ const cors = require('cors');
 app.use(cors());
 
 // Initialize the main project folder
-app.use(express.static(path.resolve('../../dist')));
+app.use(express.static('./dist'));
 
 // Spin up the server
 const port = 8080;
