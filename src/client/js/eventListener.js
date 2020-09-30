@@ -55,6 +55,3 @@ export async function weatherbitApi (lat, long) {
     }
     return {weatherIcon, description, temp}; 
  };     
-
-// Test
-console.log(destination + traveldate + countdown + list); 
