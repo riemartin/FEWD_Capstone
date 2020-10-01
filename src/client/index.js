@@ -16,7 +16,7 @@ export {uiUpdater};
 const travelData = {}; 
 
 //EventListener
-document.getElementById('submit').addEventListener('click', dataAggregator());
+document.getElementById('generate').addEventListener('click', dataAggregator);
 
 //Is already data saved in localStorage? 
 document.getElementById('destination').value = localStorage.getItem('dest_server');
@@ -41,7 +41,7 @@ async function dataAggregator (event) {
     travelData.countdown = countdown; 
 
     // Get lat & long
-    const geoApi = await geoApi(destination);
+    const geoApiRes = await geoApi(destination);
 
     travelData.lat = lat; 
     travelData.long = long; 

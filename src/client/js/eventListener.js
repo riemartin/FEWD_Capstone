@@ -1,7 +1,7 @@
 export async function geoApi (destination) {
 
     // Build url for Geonames API request
-    const geonames_url ='api.geonames.org/search?name=${destination}&username=${process.env.API_KEY}'; 
+    const geonames_url =`api.geonames.org/search?name=${destination}&username=${env.process.USERNAME}`; 
 
     // Call API
     const apiRes =  await fetch (geonames_url); 

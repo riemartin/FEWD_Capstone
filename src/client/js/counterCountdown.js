@@ -4,7 +4,9 @@
         
         var oneDay = 24*60*60*1000;
         const d = new Date();
-        const today = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
-        const countdown = Math.round(Math.abs((today.getTime() - traveldate.getTime())/(oneDay))); 
+        const today = Date.parse(d); 
+        const travelDate = Date.parse(traveldate); 
+        const diffMili = travelDate - today
+        const countdown = Math.round(diffMili/oneDay); 
         return countdown;
     }
