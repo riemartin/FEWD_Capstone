@@ -7,8 +7,7 @@ export function uiUpdater (travelData) {
     Only ${travelData.countdown} days left!`; 
 
     // display Weather Data
-    const weather_result = document.getElementById('weather').innerHTML=
-    `The weather will be ${travelData.description} wuth temperatures around ${travelData.temp}.
+    const weather_result = document.getElementById('weather').innerHTML=`The weather will be ${travelData.weather} with temperatures around ${travelData.temp}.
     <img src=${travelData.img} alt="Destination">`; 
 
 }

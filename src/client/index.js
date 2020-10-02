@@ -43,20 +43,25 @@ async function dataAggregator (event) {
     // Get lat & long
     const geoApiRes = await geoApi(destination);
 
-    travelData.lat = lat; 
-    travelData.long = long; 
-    travelData.ctry = ctry; 
+    travelData.lat = geoApiRes.lat; 
+    console.log(travelData.lat); 
 
+    travelData.long = geoApiRes.long; 
+    console.log(travelData.long);  
+
+    travelData.ctry = geoApiRes.ctry; 
+   
     // Get Image
-    const pixabayApi = await pixabayApi (destination); 
-    travelData.img = img; 
+    const pixabayApiRes = await pixabayApi (destination); 
+    travelData.img = pixabayApiRes.img; 
 
     // Get weather
-    const weatherbitApi = await weatherbitApi(lat, long); 
+    const weatherbitApiRes = await weatherbitApi(travelData.long, travelData.lat); 
 
-    travelData.weatherIcon = weatherIcon; 
-    travelData.description = description; 
-    travelData.temp = temp; 
+    travelData.weather = weatherbitApiRes.weather; 
+    console.log(travelData.weather); 
+    //travelData.description = weatherbitApiRes.description; 
+    //travelData.temp = weatherbitApiRes.temp; 
 
     uiUpdater(travelData); 
 }
