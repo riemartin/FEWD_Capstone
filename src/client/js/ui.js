@@ -1,4 +1,4 @@
-export async function uiUpdater (travelData) {
+export function uiUpdater (travelData) {
 
     // display Geo Data
     const geo_result = document.getElementById('geo').innerHTML= 
@@ -10,4 +10,5 @@ export async function uiUpdater (travelData) {
     const weather_result = document.getElementById('weather').innerHTML=
     `The weather will be ${travelData.description} wuth temperatures around ${travelData.temp}.
     <img src=${travelData.img} alt="Destination">`; 
+
 }

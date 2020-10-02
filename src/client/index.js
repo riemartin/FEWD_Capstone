@@ -37,7 +37,7 @@ async function dataAggregator (event) {
     travelData.traveldate = traveldate;
     
     // Get Countdown
-    const countdown = await counter(traveldate); 
+    const countdown = counter(traveldate); 
     travelData.countdown = countdown; 
 
     // Get lat & long
