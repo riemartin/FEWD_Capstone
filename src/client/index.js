@@ -1,7 +1,8 @@
 import './styles/button.scss'; 
 import './styles/container.scss';
 import './styles/form.scss';
-import './styles/header.scss'; 
+import './styles/header.scss';
+import './styles/result.scss'; 
 
 import {geoApi, weatherbitApi, pixabayApi} from './js/eventListener'; 
 import {counter} from './js/counterCountdown';
