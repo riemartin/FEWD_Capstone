@@ -27,10 +27,14 @@ async function dataAggregator (event) {
     
     // Get input from the form field and save into variables & save to local storage
     const destination = document.getElementById('destination').value;
-    localStorage.setItem('dest_server', destination);    
-    const traveldate_string = document.getElementById('traveldate').value.split('/');
-    const traveldate = new Date (traveldate_string[2], traveldate_string[1], traveldate_string[0]); 
-    localStorage.setItem('date_server', traveldate);  
+    localStorage.setItem('dest_server', destination);   
+
+    const traveldate_string = document.getElementById('traveldate').value;
+    travelData.traveldate_string = traveldate_string
+    const traveldate_split = traveldate_string.split('/');
+    const traveldate_st = traveldate_split[2] + '-' + traveldate_split[1] + '-' + traveldate_split[0]; 
+    const traveldate = new Date(traveldate_st); 
+    localStorage.setItem('date_server', traveldate_string);  
 
     // Assign Values to JS Object
     travelData.destination = destination; 
@@ -56,10 +60,14 @@ async function dataAggregator (event) {
     travelData.img = pixabayApiRes.img; 
 
     // Get weather
-    const weatherbitApiRes = await weatherbitApi(travelData.long, travelData.lat); 
+    const weatherbitApiRes = await weatherbitApi(travelData.lat, travelData.long, countdown); 
 
-    travelData.weather = weatherbitApiRes.weather; 
-    console.log(travelData.weather); 
+    travelData.weather = weatherbitApiRes; 
+    travelData.temp = weatherbitApiRes.temp;
+    travelData.description = weatherbitApiRes.weather.description; 
+    travelData.img = weatherbitApiRes.weather.icon; 
+    console.log(travelData.temp); 
+    console.log("traveldataweather", travelData.weather); 
     //travelData.description = weatherbitApiRes.description; 
     //travelData.temp = weatherbitApiRes.temp; 
 

@@ -26,7 +26,7 @@ app.use(cors());
 app.use(express.static('./dist'));
 
 // Spin up the server
-const port = 8080;
+const port = 8081;
 const server = app.listen(port, listening)
 
 // Callback to debug
