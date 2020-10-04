@@ -38,7 +38,7 @@ export async function weatherbitApi (lat, long, countdown) {
     const weatherNW_url =`https://api.weatherbit.io/v2.0/current?lat=${lat}&lon=${long}&key=bb96717fa2134fb987f415ad4d5d5123`; 
     const weatherFC_url = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${long}&key=bb96717fa2134fb987f415ad4d5d5123`; 
 
-    if (countdown > 7 && countdown < 17) {
+    if (countdown > 1 && countdown < 17) {
         const weatherRes = await fetch (weatherFC_url); 
         const res = await weatherRes.json();
         console.log(res); 
@@ -48,20 +48,6 @@ export async function weatherbitApi (lat, long, countdown) {
         console.log(i + "if"); 
         const weather = res.data[i]; 
         return weather;
-
-    } else if (countdown < 7) {
-        const weatherRes = await fetch (weatherFC_url); 
-        const res = await weatherRes.json();
-        console.log(res); 
-
-        // Save returned Data from API
-        const i = countdown - 1;
-        console.log(i); 
-        console.log(i + "else if");  
-        const weather = res.data[i];
-        console.log(weather); 
-        
-        return weather;  
  
     } else {
 
