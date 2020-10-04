@@ -67,10 +67,6 @@ async function dataAggregator (event) {
     travelData.temp = weatherbitApiRes.temp;
     travelData.description = weatherbitApiRes.weather.description; 
     travelData.img = weatherbitApiRes.weather.icon; 
-    console.log(travelData.temp); 
-    console.log("traveldataweather", travelData.weather); 
-    //travelData.description = weatherbitApiRes.description; 
-    //travelData.temp = weatherbitApiRes.temp; 
 
     uiUpdater(travelData); 
 }

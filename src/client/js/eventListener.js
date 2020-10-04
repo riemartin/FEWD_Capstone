@@ -27,7 +27,7 @@ export async function pixabayApi (destination) {
     // Call API
     const pixabayApiRes =  await fetch (pixabay_url); 
     const pixabayres = await pixabayApiRes.json();
-    const img = pixabayres.hits[0,1]; 
+    const img = pixabayres.hits[0]; 
      
     return img;
  }; 
@@ -36,16 +36,7 @@ export async function weatherbitApi (lat, long, countdown) {
 
 
     const weatherNW_url =`https://api.weatherbit.io/v2.0/current?lat=${lat}&lon=${long}&key=bb96717fa2134fb987f415ad4d5d5123`; 
-    const weatherNW_url_test ='https://api.weatherbit.io/v2.0/current?lat=53.5625&lon=9.9573&key=bb96717fa2134fb987f415ad4d5d5123';
     const weatherFC_url = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${long}&key=bb96717fa2134fb987f415ad4d5d5123`; 
-    const weatherFC_url_test = `https://api.weatherbit.io/v2.0/forecast/daily?lat=53.5625&lon=9.9573&key=bb96717fa2134fb987f415ad4d5d5123`;
-
-    console.log(countdown); 
-    //const weatherRes = await fetch (weatherNW_url); 
-    //const res = await weatherRes.json();
-    //const weather = res.data[0]; 
-    //console.log(weather); 
-    //return weather; 
 
     if (countdown > 7 && countdown < 17) {
         const weatherRes = await fetch (weatherFC_url); 
@@ -72,6 +63,8 @@ export async function weatherbitApi (lat, long, countdown) {
         return weather;  
  
     } else {
+
+        // Show weather at destination today
         const weatherRes = await fetch (weatherNW_url); 
         const res = await weatherRes.json();
         console.log(res); 

@@ -10,6 +10,6 @@ export function uiUpdater (travelData) {
     Only ${travelData.countdown} days left!</div>`; 
 
     // display Weather Data
-    document.getElementById('weather').innerHTML=`The weather will be ${travelData.description} with temperatures around ${travelData.temp} Degrees!`; 
-   // <img src=${travelData.img} alt="Destination">`; 
+    document.getElementById('weather').innerHTML=`The weather will be ${travelData.description} with temperatures around ${travelData.temp} Degrees!<br>
+    <img src=${travelData.img} alt="Destination">`; 
 }

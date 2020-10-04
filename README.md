@@ -6,5 +6,7 @@ This project takes two input variables (destination & traveldate) and returns in
 2.	Weatherbit Web Service (https://www.weatherbit.io/)
 3.	Pixabay Web Service (https://pixabay.com/api/docs/)
 
-## Extras
 The projects is build with webpack. It includes serviceworkers.
+
+## Extra Feature
+Usage of localstorage to save inoput variables of customer. 
