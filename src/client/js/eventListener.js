@@ -47,18 +47,19 @@ export async function weatherbitApi (lat, long, countdown) {
         const i = countdown - 1; 
         console.log(i + "if"); 
         const weather = res.data[i]; 
-
         return weather;
 
     } else if (countdown < 7) {
-        const weatherRes = await fetch (weatherNW_url); 
+        const weatherRes = await fetch (weatherFC_url); 
         const res = await weatherRes.json();
         console.log(res); 
 
         // Save returned Data from API
         const i = countdown - 1;
+        console.log(i); 
         console.log(i + "else if");  
-        const weather = res.data[i]; 
+        const weather = res.data[i];
+        console.log(weather); 
         
         return weather;  
  

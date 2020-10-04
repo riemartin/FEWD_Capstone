@@ -43,7 +43,8 @@ async function dataAggregator (event) {
     
     // Get Countdown
     const countdown = counter(traveldate); 
-    travelData.countdown = countdown; 
+    
+    travelData.countdown = countdown + 1; 
 
     // Get lat & long
     const geoApiRes = await geoApi(destination);
@@ -61,7 +62,7 @@ async function dataAggregator (event) {
     travelData.img = pixabayApiRes.img; 
 
     // Get weather
-    const weatherbitApiRes = await weatherbitApi(travelData.lat, travelData.long, countdown); 
+    const weatherbitApiRes = await weatherbitApi(travelData.lat, travelData.long, travelData.countdown); 
 
     travelData.weather = weatherbitApiRes; 
     travelData.temp = weatherbitApiRes.temp;
