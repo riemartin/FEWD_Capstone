@@ -4,12 +4,12 @@ import './styles/form.scss';
 import './styles/header.scss';
 import './styles/result.scss'; 
 
-import {geoApi, weatherbitApi, pixabayApi} from './js/eventListener'; 
+import {geoApi, weatherbitApi, pixabayApi, postData} from './js/eventListener'; 
 import {counter} from './js/counterCountdown';
 import {uiUpdater} from './js/ui';
 
 
-export {geoApi, weatherbitApi, pixabayApi}; 
+export {geoApi, weatherbitApi, pixabayApi, postData}; 
 export {counter}; 
 export {uiUpdater}; 
 
@@ -17,7 +17,9 @@ export {uiUpdater};
 const travelData = {}; 
 
 //EventListener
-document.getElementById('generate').addEventListener('click', dataAggregator);
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById('generate').addEventListener('click', dataAggregator);
+});
 
 //Is already data saved in localStorage? 
 document.getElementById('destination').value = localStorage.getItem('dest_server');
@@ -59,7 +61,8 @@ async function dataAggregator (event) {
    
     // Get Image
     const pixabayApiRes = await pixabayApi (destination); 
-    travelData.img = pixabayApiRes.img; 
+    console.log(pixabayApiRes); 
+    travelData.img = pixabayApiRes.webformatURL; 
 
     // Get weather
     const weatherbitApiRes = await weatherbitApi(travelData.lat, travelData.long, travelData.countdown); 
@@ -67,7 +70,9 @@ async function dataAggregator (event) {
     travelData.weather = weatherbitApiRes; 
     travelData.temp = weatherbitApiRes.temp;
     travelData.description = weatherbitApiRes.weather.description; 
-    travelData.img = weatherbitApiRes.weather.icon; 
+    
+    postData('http://localhost:8081/save', {destination: travelData.destination, traveldate: travelData.traveldate, countdown: travelData.countdown,
+    description: travelData.description,temperature: travelData.temp,img: travelData.img});   
 
     uiUpdater(travelData); 
 }

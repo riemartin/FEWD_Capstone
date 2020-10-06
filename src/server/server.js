@@ -40,4 +40,18 @@ app.get('/all', function (req, res) {
     res.send('./dist/index.html'); 
 }); 
 
-// Post Route?
+// Post Route
+
+app.post('/save', function (req, res) {
+    const newTravel= {
+        destination: travelData.destination, 
+        traveldate: travelData.traveldate,
+        countdown: travelData.countdown, 
+        temperature: travelData.temp,
+        img: travelData.img
+    }; 
+    
+    TravelData.push(newTravel);
+    console.log(TravelData);
+    
+});

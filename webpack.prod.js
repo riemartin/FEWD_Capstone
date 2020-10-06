@@ -7,7 +7,6 @@ const WorkboxPlugin = require('workbox-webpack-plugin')
 module.exports = {
     mode: 'production',
     entry: './src/client/index.js',
-    target: 'node',
     output: {
         libraryTarget: 'var',
         library: 'client'
@@ -17,11 +16,11 @@ module.exports = {
             {
                 test: '/\.js$/',
                 exclude: /node_modules/,
-                loader: "babel-loader"
+                loader: "babel-loader",
             },
             {
                 test: /\.scss$/,
-                use: [ 'style-loader', 'css-loader', 'sass-loader' ]
+                use: [MiniCssExtractPlugin.loader, 'css-loader'],
             }
         ]
     }, 
@@ -30,6 +29,7 @@ module.exports = {
             template: "./src/client/views/index.html",
             filename: "./index.html",
         }),
+        new MiniCssExtractPlugin (),
         new WorkboxPlugin.GenerateSW(),
     ]
 }

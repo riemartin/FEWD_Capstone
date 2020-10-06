@@ -62,4 +62,18 @@ export async function weatherbitApi (lat, long, countdown) {
  
         return weather; 
     }
- };     
+ };
+
+export async function postData (route, data) {
+    const res = await fetch(route, {
+        method: 'POST', 
+        credentials: 'same-origin', 
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),       
+    });
+    const newTravel = await res.json();
+    console.log(newTravel); 
+    return newTravel;
+};  

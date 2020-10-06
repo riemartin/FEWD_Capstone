@@ -20,7 +20,7 @@
     .container {
         display:grid;
         grid-template-columns: 600px 400px;
-        grid-template-rows: 150px 100px 100px 50px 300px; 
+        grid-template-rows: 150px 100px 100px 50px 800px; 
         grid-row-gap: 50px;
         grid-column-gap: 50px;
         margin: auto;
@@ -28,7 +28,7 @@
         "header header"
         "destination field_dest"
         "date field_date"
-        "button button" 
+        "Button button" 
         "result result";
     }
 }
