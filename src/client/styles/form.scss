@@ -1,32 +1,31 @@
 #question1 {
+    width: 80%;
     display: flex; 
     align-items: center;
     justify-content: center;
-    font-size: 30px;
+    font-size: 1.5rem;
     font-family: 'sans serif';     
 }
 
 #question2 {
+    width: 80%;
     display: flex; 
     align-items: center;
     justify-content: center;
-    font-size: 30px;
+    font-size: 1.5rem;
     font-family: 'sans serif';     
 }
 
 input {
-    display: flex; 
-    align-items: center;
-    justify-content: center;
     height: 40px;
     width: 250px;
-    margin-top: 40px;
     color: white;
     font: bold;
     background:grey;
     font-size: 20px;
     font-family: 'sans serif';
 }
+
 
 /* Style for Placeholder Text*/
 

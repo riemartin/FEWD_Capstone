@@ -11,6 +11,6 @@ export function uiUpdater (travelData) {
 
     // display Weather Data
     document.getElementById('weather').innerHTML=`The weather will be ${travelData.description} with temperatures around ${travelData.temp} Degrees!<br><br><br>
-    <div> <img src="${travelData.img}" alt="Destination"></div>`; 
+    <div class="result"> <img src="${travelData.img}" alt="Destination"></div>`; 
     
 }
