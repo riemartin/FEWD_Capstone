@@ -71,7 +71,7 @@ async function dataAggregator (event) {
     travelData.temp = weatherbitApiRes.temp;
     travelData.description = weatherbitApiRes.weather.description; 
     
-    postData('http://localhost:8081/save', {destination: travelData.destination, traveldate: travelData.traveldate, countdown: travelData.countdown,
+    postData('/save', {destination: travelData.destination, traveldate: travelData.traveldate, countdown: travelData.countdown,
     description: travelData.description,temperature: travelData.temp,img: travelData.img});   
 
     uiUpdater(travelData); 
