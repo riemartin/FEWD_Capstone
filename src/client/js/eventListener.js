@@ -20,7 +20,6 @@ export async function geoApi (destination) {
 
 };   
 
-
 export async function pixabayApi (destination) {
     const pixabay_url = `https://pixabay.com/api/?key=18495402-9d414a90be0c31a451b166133&q=${destination}&category=places&image_type=photo`; 
  
@@ -63,17 +62,3 @@ export async function weatherbitApi (lat, long, countdown) {
         return weather; 
     }
  };
-
-export async function postData (route, data) {
-    const res = await fetch(route, {
-        method: 'POST', 
-        credentials: 'same-origin', 
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),       
-    });
-    const newTravel = await res.json();
-    console.log(newTravel); 
-    return newTravel;
-};  

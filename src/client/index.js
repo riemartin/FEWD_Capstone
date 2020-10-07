@@ -4,17 +4,17 @@ import './styles/form.scss';
 import './styles/header.scss';
 import './styles/result.scss'; 
 
-import {geoApi, weatherbitApi, pixabayApi, postData} from './js/eventListener'; 
+import {geoApi, weatherbitApi, pixabayApi} from './js/eventListener'; 
 import {counter} from './js/counterCountdown';
 import {uiUpdater} from './js/ui';
 
 
-export {geoApi, weatherbitApi, pixabayApi, postData}; 
+export {geoApi, weatherbitApi, pixabayApi}; 
 export {counter}; 
 export {uiUpdater}; 
 
 // Setup empty JS object to act as endpoint 
-const travelData = {}; 
+let travelData = {}; 
 
 //EventListener
 document.addEventListener("DOMContentLoaded", () => {
@@ -68,11 +68,15 @@ async function dataAggregator (event) {
     const weatherbitApiRes = await weatherbitApi(travelData.lat, travelData.long, travelData.countdown); 
 
     travelData.weather = weatherbitApiRes; 
-    travelData.temp = weatherbitApiRes.temp;
+    travelData.temp = JSON.stringify(weatherbitApiRes.temp); 
     travelData.description = weatherbitApiRes.weather.description; 
     
-    postData('/save', {destination: travelData.destination, traveldate: travelData.traveldate, countdown: travelData.countdown,
-    description: travelData.description,temperature: travelData.temp,img: travelData.img});   
+    async function postData (list = {destination: travelData.destination, traveldate: travelData.traveldate, countdown: travelData.countdown,
+    description: travelData.description, temperature: travelData.temp, img: travelData.img}) {
+        const postDataRes = await fetch('http://localhost:8081/save'); 
+        const newTravel = await postDataRes.json();
+        return newTravel; 
+    }; 
 
     uiUpdater(travelData); 
 }

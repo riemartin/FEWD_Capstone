@@ -37,21 +37,20 @@ function listening(){
 // Initialize all route 
 
 app.get('/all', function (req, res) {
-    res.send('./dist/index.html'); 
+   res.send('./dist/index.html'); 
 }); 
 
 // Post Route
 
 app.post('/save', function (req, res) {
     const newTravel= {
-        destination: travelData.destination, 
-        traveldate: travelData.traveldate,
-        countdown: travelData.countdown, 
-        temperature: travelData.temp,
-        img: travelData.img
+        destination: req.body.destination, 
+        traveldate: req.body.traveldate,
+        countdown: req.body.countdown, 
+        temperature: req.body.temp,
+        img: req.body.img
     }; 
     
-    TravelData.push(newTravel);
+    TravelData = newTravel;
     console.log(TravelData);
-    
 });
